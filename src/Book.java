@@ -25,5 +25,25 @@ public class Book {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return '\'' + title + "', " + author + ", " + year;
+    }
 
+    @Override
+    public boolean equals(Object other) {
+        if (getClass() != other.getClass()) {
+            System.out.println("Классы объектов разные");
+            return false;
+        }
+        Book book = (Book) other;
+        return title.equals(book.title) && author.equals(book.author) && this.year == book.year;
+    }
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(title, author, year);
+    }
 }
+
+
+
